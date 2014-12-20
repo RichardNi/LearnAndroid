@@ -1,10 +1,14 @@
 package control.android.example.listview;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +25,10 @@ import control.android.example.R;
  */
 public class MainActivity extends ActionBarActivity {
 
+    private static final String TAG = "MainActivity";
+
+    private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, item);
 
-        ListView listView = (ListView) findViewById(R.id.lv_show);
+        listView = (ListView) findViewById(R.id.lv_show);
         // 设置adapter到ListView上
 //        listView.setAdapter(arrayAdapter);
 
@@ -46,8 +54,23 @@ public class MainActivity extends ActionBarActivity {
                 new String[]{"picture", "content"}, new int[]{R.id.pic, R.id.txt});
 
         listView.setAdapter(simpleAdapter);
+        listView.setOnItemClickListener(onItemClickListener);
 
     }
+
+    /**ListView 每一项的点击事件*/
+    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            Object obj = listView.getItemAtPosition(position);
+
+            Toast.makeText(MainActivity.this, "点击了第：" + position + "行\n内容："+ obj,
+                    Toast.LENGTH_LONG).show();
+
+            Log.i(TAG, "position:" + position + ", id:" + id + ", obj:" + obj);
+        }
+    };
 
     private List<Map<String, Object>> getData() {
         List<Map<String, Object>> maps = new ArrayList<>();
@@ -55,6 +78,7 @@ public class MainActivity extends ActionBarActivity {
             Map<String, Object> map = new HashMap<>();
             map.put("content", "不错哦，哈哈" + i);
             map.put("picture", R.drawable.ic_launcher);
+            map.put("id", i);
             maps.add(map);
         }
         return maps;
