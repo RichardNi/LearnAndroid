@@ -1,1 +1,1 @@
-include ':datatimepicker', ':gridview-demo', ':listView'
+include ':datatimepicker', ':gridview-demo', ':listView', ':spinner-demo'
