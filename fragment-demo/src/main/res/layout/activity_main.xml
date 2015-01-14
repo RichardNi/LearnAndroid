@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center_horizontal"
+            android:drawableTop="@drawable/ic_launcher"
+            android:background="@drawable/radio_pressed"
+            android:text="@string/first"/>
+
+        <RadioButton
+            android:id="@+id/rb_second"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:drawableTop="@drawable/ic_launcher"
+            android:background="@drawable/radio_pressed"
+            android:text="@string/second"/>
+
+        <RadioButton
+            android:id="@+id/rb_third"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:drawableTop="@drawable/ic_launcher"
+            android:background="@drawable/radio_pressed"
+            android:text="@string/third"/>
+
+        <RadioButton
+            android:id="@+id/rb_fourth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:drawableTop="@drawable/ic_launcher"
+            android:background="@drawable/radio_pressed"
+            android:text="@string/fourth"/>
+
+    </RadioGroup>
+
+</RelativeLayout>
