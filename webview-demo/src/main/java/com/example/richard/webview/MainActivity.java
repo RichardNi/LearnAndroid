@@ -1,8 +1,10 @@
 package com.example.richard.webview;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -11,6 +13,7 @@ import android.webkit.WebViewClient;
 public class MainActivity extends ActionBarActivity {
 
     private WebView webView;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void init() {
         webView = (WebView) findViewById(R.id.wv);
-        webView.loadUrl("http://www.baidu.com");
+        webView.loadUrl("http://2014.qq.com");
         WebSettings webSettings = webView.getSettings();
         // 在WebView中启用JavaScript
         webSettings.setJavaScriptEnabled(true);
@@ -44,10 +47,37 @@ public class MainActivity extends ActionBarActivity {
                 // true:使用WebView打开URL，false:使用系统浏览器打开URL
                 return true;
             }
-
         });
 
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                if (newProgress == 100) {
+                    closeDialog();
+                } else {
+                    showDialogProgress(newProgress);
+                }
+            }
+        });
 
     }
+
+    private void showDialogProgress(int newProgress) {
+        if (progressDialog == null) {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("正在加载");
+//            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        }
+//        progressDialog.setProgress(newProgress);
+        progressDialog.show();
+
+    }
+
+    private void closeDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+    }
+
 
 }
