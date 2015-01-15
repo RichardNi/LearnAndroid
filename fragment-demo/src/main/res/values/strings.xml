@@ -8,5 +8,6 @@
     <string name="second">动态加载</string>
     <string name="third">生命周期</string>
     <string name="fourth">传值通信</string>
+    <string name="change">改变</string>
 
 </resources>
