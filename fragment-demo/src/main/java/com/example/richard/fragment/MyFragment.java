@@ -1,10 +1,7 @@
 package com.example.richard.fragment;
 
-import android.annotation.TargetApi;
-import android.app.Fragment;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +10,8 @@ import android.widget.TextView;
 /**
  * Created by Richard on 2015/1/15.
  */
-@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class MyFragment extends Fragment {
-    @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         /**
@@ -28,4 +24,5 @@ public class MyFragment extends Fragment {
         textView.setText("fragment中的TextView");
         return view;
     }
+
 }
