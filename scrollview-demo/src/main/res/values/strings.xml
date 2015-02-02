@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ScrollView-Demo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="content">
+关于我们\n\n\n
+什么是慕课（MOOC）\n\n
+源于国外，Massive（大规模）Open（开放）Online（在线）Course（课程）。\n\n\n
+慕课网是什么MOOC\n\n
+专注做好IT技能教育的MOOC，符合互联网发展潮流接地气儿的MOOC。我们免费，我们只教
+有用的，我们专心做教育。\n\n\n
+为什么做慕课网\n\n
+慕课网的小伙伴希望所有热爱互联网的同学能更加便捷的获取学习资源，用互联网思维改变我们的学习。
+我们提供最新的知识，帮你应对变化的世界！\n\n\n
+慕课网在做什么\n\n
+做更多实用的课程，做更好体验的产品，研究更牛的技术！\n\n\n
+慕课网的追求是什么\n\n
+让更多热爱互联网的同学来慕课网学习，多年以后，圈子里一批技术牛说：我在慕课网学习过，这就够了。\n\n\n
+慕课网有移动端吗\n\n
+有啊，手机端请扫码下载\n
+iPhone\n\n
+Android\n\n\n
+慕课网的大佬是谁\n\n
+慕课网隶属于北京慕课科技中心(有限合伙)，是一家从事互联网免费教学的网络教育公司。秉承“开拓、创新、公平、
+分享”的精神，将互联网特性全面的应用在教育领域，致力于为教育机构及求学者打造一站式互动在线教育品牌
+    </string>
+
+</resources>

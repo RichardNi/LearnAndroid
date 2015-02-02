@@ -1,2 +1,2 @@
-include ':datatimepicker', ':gridview-demo', ':listView', ':spinner-demo', ':viewpager-demo', ':viewflipper-demo',
+include ':datatimepicker', ':gridview-demo', ':listView', ':spinner-demo', ':viewpager-demo', ':viewflipper-demo', ':scrollview-demo',
         ':progress-demo', ':webview-demo', ':fragment-demo'
