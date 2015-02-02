@@ -5,13 +5,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
     private static final String TAG = "Main";
+    private ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +21,12 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         final TextView textView = (TextView) findViewById(R.id.txt);
         textView.setText(R.string.content);
+        Button btnUp = (Button) findViewById(R.id.btn_up);
+        Button btnDown = (Button) findViewById(R.id.btn_down);
+        btnUp.setOnClickListener(this);
+        btnDown.setOnClickListener(this);
 
-        final ScrollView scrollView = (ScrollView) findViewById(R.id.scroll);
+        scrollView = (ScrollView) findViewById(R.id.scroll);
         scrollView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -61,5 +67,22 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        /**
+         * scrollTo:每次都是从起始(X或Y轴)位置滚动相对的距离
+         * scrollBy:从上一次相对的位置开始滚动
+         */
+
+        switch (v.getId()) {
+            case R.id.btn_up:
+                scrollView.scrollBy(0, -30);
+                break;
+            case R.id.btn_down:
+                scrollView.scrollBy(0, 30);
+        }
     }
 }
