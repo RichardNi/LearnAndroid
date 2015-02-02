@@ -16,8 +16,11 @@ public class MyPageAdapter extends PagerAdapter {
 
     private List<View> viewList;
 
-    public MyPageAdapter(List<View> viewList) {
+    private List<String> titleList;
+
+    public MyPageAdapter(List<View> viewList, List<String> titleList) {
         this.viewList = viewList;
+        this.titleList = titleList;
     }
 
     @Override
@@ -42,5 +45,10 @@ public class MyPageAdapter extends PagerAdapter {
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView(viewList.get(position));
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titleList.get(position);
     }
 }
