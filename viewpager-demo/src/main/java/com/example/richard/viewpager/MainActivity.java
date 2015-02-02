@@ -6,18 +6,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
-
+public class MainActivity extends ActionBarActivity implements ViewPager.OnPageChangeListener {
+    private static final String TAG = "Main";
     private List<View> viewList = new ArrayList<>(4);
-
     private List<String> titleList = new ArrayList<>(4);
-
     private List<Fragment> fragmentList = new ArrayList<>(4);
 
     @Override
@@ -83,8 +83,25 @@ public class MainActivity extends ActionBarActivity {
 //        pager.setAdapter(adapter);
 //        pager.setAdapter(fragmentPagerAdapter);
         pager.setAdapter(fragmentStatePagerAdapter);
+        pager.setOnPageChangeListener(this);
         // endregion
 
     }
 
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        Log.d(TAG, "position:" + position + ", positionOffset:" + positionOffset +
+                ", positionOffsetPixels:" + positionOffsetPixels);
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        Log.d(TAG, "当前是第" + (position + 1) + "个页面");
+        Toast.makeText(this, "当前是第" + (position + 1) + "个页面", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+        Log.d(TAG, "onPageScrollStateChanged-->state:" + state);
+    }
 }
