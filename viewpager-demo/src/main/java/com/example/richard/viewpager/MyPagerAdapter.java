@@ -10,15 +10,15 @@ import java.util.List;
 /**
  * Created by Richard on 2015/2/2.
  */
-public class MyPageAdapter extends PagerAdapter {
+public class MyPagerAdapter extends PagerAdapter {
 
-    private static final String TAG = MyPageAdapter.class.getSimpleName();
+    private static final String TAG = MyPagerAdapter.class.getSimpleName();
 
     private List<View> viewList;
 
     private List<String> titleList;
 
-    public MyPageAdapter(List<View> viewList, List<String> titleList) {
+    public MyPagerAdapter(List<View> viewList, List<String> titleList) {
         this.viewList = viewList;
         this.titleList = titleList;
     }

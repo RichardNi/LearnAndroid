@@ -2,6 +2,7 @@ package com.example.richard.viewpager;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -16,6 +17,8 @@ public class MainActivity extends ActionBarActivity {
     private List<View> viewList = new ArrayList<>(4);
 
     private List<String> titleList = new ArrayList<>(4);
+
+    private List<Fragment> fragmentList = new ArrayList<>(4);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
         tabStrip.setTabIndicatorColor(Color.RED);
         // endregion
 
-        // region 1.通过View对象作为ViewPager的数据源
+        // region 通过View对象作为ViewPager的数据源
         View view1 = View.inflate(this, R.layout.view1, null);
         View view2 = View.inflate(this, R.layout.view2, null);
         View view3 = View.inflate(this, R.layout.view3, null);
@@ -53,13 +56,33 @@ public class MainActivity extends ActionBarActivity {
         viewList.add(view4);
         // endregion
 
-        // region 2.创建PageAdapter，并设置数据源
-        MyPageAdapter adapter = new MyPageAdapter(viewList, titleList);
+        // region 通过Fragment对象作为ViewPager的数据源
+        fragmentList.add(new Fragment1());
+        fragmentList.add(new Fragment2());
+        fragmentList.add(new Fragment3());
+        fragmentList.add(new Fragment4());
+        //endregion
+
+        // region 创建FragmentPagerAdapter
+        MyFragmentPagerAdapter fragmentPagerAdapter = new MyFragmentPagerAdapter(
+                getSupportFragmentManager(), fragmentList, titleList);
         // endregion
 
-        // region 3.创建ViewPager对象，并设置数据适配器
+        // region 创建FragmentStatePagerAdapter
+        MyFragmentStatePagerAdapter fragmentStatePagerAdapter = new MyFragmentStatePagerAdapter(
+                getSupportFragmentManager(), fragmentList, titleList
+        );
+        // endregion
+
+        // region 创建PageAdapter，并设置数据源
+        MyPagerAdapter adapter = new MyPagerAdapter(viewList, titleList);
+        // endregion
+
+        // region 创建ViewPager对象，并设置数据适配器
         ViewPager pager = (ViewPager) findViewById(R.id.pager);
-        pager.setAdapter(adapter);
+//        pager.setAdapter(adapter);
+//        pager.setAdapter(fragmentPagerAdapter);
+        pager.setAdapter(fragmentStatePagerAdapter);
         // endregion
 
     }
